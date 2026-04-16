@@ -1,0 +1,38 @@
+{
+    "sponsors": [
+        {
+            "name": "Google",
+            "industry": "Tech",
+            "relevance_score": 9,
+            "reason": "Leader in AI technology and frequent sponsor of AI conferences"
+        },
+        {
+            "name": "Microsoft",
+            "industry": "Tech",
+            "relevance_score": 8.5,
+            "reason": "Major player in AI and machine learning, with a strong presence in India"
+        },
+        {
+            "name": "IBM",
+            "industry": "Tech",
+            "relevance_score": 8,
+            "reason": "Long history of innovation in AI and a significant presence in the Indian market"
+        },
+        {
+            "name": "Tata Consultancy Services",
+            "industry": "Tech",
+            "relevance_score": 7.5,
+            "reason": "Large Indian IT company with a strong focus on AI and digital transformation"
+        },
+        {
+            "name": "Accenture",
+            "industry": "Tech",
+            "relevance_score": 7,
+            "reason": "Global consulting firm with a significant presence in India and a strong focus on AI and emerging technologies"
+        }
+    ],
+    "_metadata": {
+        "event_type": "AI",
+        "location": "India"
+    }
+}

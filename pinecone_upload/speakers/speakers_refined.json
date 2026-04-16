@@ -1,0 +1,38 @@
+{
+    "speakers": [
+        {
+            "name": "Andrew Ng",
+            "expertise": "AI/ML",
+            "suggested_topic": "Large Language Models for Natural Language Processing",
+            "why": "Founder of AI Fund and former chief scientist at Baidu"
+        },
+        {
+            "name": "Fei-Fei Li",
+            "expertise": "AI/ML",
+            "suggested_topic": "Visual Intelligence and Large Language Models",
+            "why": "Director of the Stanford Artificial Intelligence Lab"
+        },
+        {
+            "name": "Yoshua Bengio",
+            "expertise": "AI/ML",
+            "suggested_topic": "Deep Learning and Large Language Models",
+            "why": "Turing Award winner and founder of Mila"
+        },
+        {
+            "name": "Demis Hassabis",
+            "expertise": "AI/ML",
+            "suggested_topic": "Large Language Models for Decision Making",
+            "why": "Co-founder and CEO of DeepMind"
+        },
+        {
+            "name": "Geoffrey Hinton",
+            "expertise": "AI/ML",
+            "suggested_topic": "Large Language Models and Neural Networks",
+            "why": "Turing Award winner and pioneer in deep learning"
+        }
+    ],
+    "_metadata": {
+        "event_type": "AI",
+        "location": "India"
+    }
+}

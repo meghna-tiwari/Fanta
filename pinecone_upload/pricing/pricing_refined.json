@@ -1,0 +1,13 @@
+{
+    "pricing": {
+        "early_bird": 2499,
+        "general": 3999,
+        "vip": 7999,
+        "expected_attendance": 500,
+        "reasoning": "Based on past event data, AI conferences in India have shown a trend of increasing demand and popularity, which suggests higher ticket prices. Considering the target audience of 500 people, the prices are set to balance revenue goals with attendee affordability."
+    },
+    "_metadata": {
+        "event_type": "AI",
+        "location": "India"
+    }
+}

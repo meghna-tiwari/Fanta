@@ -1,0 +1,29 @@
+{
+    "venues": [
+        {
+            "name": "NCUI Auditorium & Convention Centre",
+            "city": "New Delhi",
+            "capacity": 500,
+            "estimated_cost": "5-8 lakhs",
+            "why": "perfect capacity and professional event hosting"
+        },
+        {
+            "name": "Chennai Trade Centre",
+            "city": "Chennai",
+            "capacity": 500,
+            "estimated_cost": "10-15 lakhs",
+            "why": "expansive spaces for large-scale corporate events"
+        },
+        {
+            "name": "Hyderabad International Convention Centre",
+            "city": "Hyderabad",
+            "capacity": 500,
+            "estimated_cost": "8-12 lakhs",
+            "why": "easily reachable and has necessary features for a conference"
+        }
+    ],
+    "_metadata": {
+        "event_type": "AI",
+        "location": "India"
+    }
+}

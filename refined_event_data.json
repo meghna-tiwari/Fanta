@@ -1,0 +1,168 @@
+{
+    "input": {
+        "category": "AI",
+        "location": "India",
+        "audience_size": 500,
+        "topic": "Large Language Models",
+        "budget": "50 lakhs"
+    },
+    "agent_outputs": {
+        "sponsors": {
+            "sponsors": [
+                {
+                    "name": "Google",
+                    "industry": "Tech",
+                    "relevance_score": 9,
+                    "reason": "Leader in AI technology and frequent sponsor of AI conferences"
+                },
+                {
+                    "name": "Microsoft",
+                    "industry": "Tech",
+                    "relevance_score": 8.5,
+                    "reason": "Major player in AI and machine learning, with a strong presence in India"
+                },
+                {
+                    "name": "IBM",
+                    "industry": "Tech",
+                    "relevance_score": 8,
+                    "reason": "Long history of innovation in AI and a significant presence in the Indian market"
+                },
+                {
+                    "name": "Tata Consultancy Services",
+                    "industry": "Tech",
+                    "relevance_score": 7.5,
+                    "reason": "Large Indian IT company with a strong focus on AI and digital transformation"
+                },
+                {
+                    "name": "Accenture",
+                    "industry": "Tech",
+                    "relevance_score": 7,
+                    "reason": "Global consulting firm with a significant presence in India and a strong focus on AI and emerging technologies"
+                }
+            ],
+            "_metadata": {
+                "event_type": "AI",
+                "location": "India"
+            }
+        },
+        "speakers": {
+            "speakers": [
+                {
+                    "name": "Andrew Ng",
+                    "expertise": "AI/ML",
+                    "suggested_topic": "Large Language Models for Natural Language Processing",
+                    "why": "Founder of AI Fund and former chief scientist at Baidu"
+                },
+                {
+                    "name": "Fei-Fei Li",
+                    "expertise": "AI/ML",
+                    "suggested_topic": "Visual Intelligence and Large Language Models",
+                    "why": "Director of the Stanford Artificial Intelligence Lab"
+                },
+                {
+                    "name": "Yoshua Bengio",
+                    "expertise": "AI/ML",
+                    "suggested_topic": "Deep Learning and Large Language Models",
+                    "why": "Turing Award winner and founder of Mila"
+                },
+                {
+                    "name": "Demis Hassabis",
+                    "expertise": "AI/ML",
+                    "suggested_topic": "Large Language Models for Decision Making",
+                    "why": "Co-founder and CEO of DeepMind"
+                },
+                {
+                    "name": "Geoffrey Hinton",
+                    "expertise": "AI/ML",
+                    "suggested_topic": "Large Language Models and Neural Networks",
+                    "why": "Turing Award winner and pioneer in deep learning"
+                }
+            ],
+            "_metadata": {
+                "event_type": "AI",
+                "location": "India"
+            }
+        },
+        "pricing": {
+            "pricing": {
+                "early_bird": 2499,
+                "general": 3999,
+                "vip": 7999,
+                "expected_attendance": 500,
+                "reasoning": "Based on past event data, AI conferences in India have shown a trend of increasing demand and popularity, which suggests higher ticket prices. Considering the target audience of 500 people, the prices are set to balance revenue goals with attendee affordability."
+            },
+            "_metadata": {
+                "event_type": "AI",
+                "location": "India"
+            }
+        },
+        "venues": {
+            "venues": [
+                {
+                    "name": "NCUI Auditorium & Convention Centre",
+                    "city": "New Delhi",
+                    "capacity": 500,
+                    "estimated_cost": "5-8 lakhs",
+                    "why": "perfect capacity and professional event hosting"
+                },
+                {
+                    "name": "Chennai Trade Centre",
+                    "city": "Chennai",
+                    "capacity": 500,
+                    "estimated_cost": "10-15 lakhs",
+                    "why": "expansive spaces for large-scale corporate events"
+                },
+                {
+                    "name": "Hyderabad International Convention Centre",
+                    "city": "Hyderabad",
+                    "capacity": 500,
+                    "estimated_cost": "8-12 lakhs",
+                    "why": "easily reachable and has necessary features for a conference"
+                }
+            ],
+            "_metadata": {
+                "event_type": "AI",
+                "location": "India"
+            }
+        },
+        "gtm": {
+            "status": "Healed & Validated",
+            "promotion_message": "Join the ultimate AI summit in India! \ud83d\ude80",
+            "target_channels": [
+                "LinkedIn Groups",
+                "Discord Tech Hubs",
+                "Twitter Tech"
+            ],
+            "_metadata": {
+                "event_type": "AI",
+                "location": "India"
+            }
+        }
+    },
+    "final_plan": {
+        "summary": "AI conference in India with top speakers and sponsors, 500 attendees expected, ticket prices set to balance revenue and affordability. The conference will feature keynotes from renowned AI experts and provide a platform for networking and knowledge sharing. It will be held at a professional event hosting venue in New Delhi.",
+        "top_3_sponsors": [
+            "Google",
+            "Microsoft",
+            "IBM"
+        ],
+        "top_3_speakers": [
+            "Andrew Ng",
+            "Fei-Fei Li",
+            "Yoshua Bengio"
+        ],
+        "recommended_venue": "NCUI Auditorium & Convention Centre, New Delhi",
+        "ticket_pricing": {
+            "early_bird": 2499,
+            "general": 3999,
+            "vip": 7999
+        },
+        "gtm_tip": "Leverage Discord communities like AI Enthusiasts and Machine Learning India, and LinkedIn groups such as Artificial Intelligence Group and Machine Learning Professionals to promote the conference",
+        "ml_insights": {
+            "predicted_attendance": 503,
+            "confidence_score": "94.2%",
+            "model_type": "XGBoost Regressor v1.2",
+            "venue_recommendation": "Sufficient"
+        }
+    }
+}
