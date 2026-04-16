@@ -1,0 +1,16 @@
+# Local environment
+.env
+.env.*
+!.env.example
+
+# Python cache/build artifacts
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Generated local data
+scraped_data/
+*.log
+conference_plan.json
+refined_event_data.json
+pinecone_upload/

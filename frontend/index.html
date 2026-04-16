@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fanta | Conference Intelligence Console</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <div class="page-shell">
+    <header class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">Conference Planning Frontend</p>
+        <h1>Design stronger events with a planning workspace built for modern organizers.</h1>
+        <p class="hero-text">
+          Fanta turns scattered research, recommendations, and planning decisions into one clear event workspace.
+          Use it to review strategy, compare recommendations, and shape the final conference experience.
+        </p>
+        <div class="hero-actions">
+          <button id="loadPlanButton" class="button button-primary">Load Latest Plan</button>
+          <a class="button button-secondary" href="#control-room">Open Control Room</a>
+        </div>
+      </div>
+      <aside class="hero-panel">
+        <div class="stat-card">
+          <span class="stat-label">Planning focus</span>
+          <strong>Venue, speakers, sponsors, pricing</strong>
+        </div>
+        <div class="stat-card">
+          <span class="stat-label">Organizer value</span>
+          <strong>Faster research and clearer decisions</strong>
+        </div>
+        <div class="stat-card">
+          <span class="stat-label">Experience</span>
+          <strong>Planning dashboard with live recommendations</strong>
+        </div>
+      </aside>
+    </header>
+
+    <main>
+      <section class="pipeline-strip">
+        <article class="pipeline-step">
+          <span class="step-index">01</span>
+          <h2>Ingest</h2>
+          <p>Scraped event text is converted to documents and uploaded into Pinecone as searchable knowledge.</p>
+        </article>
+        <article class="pipeline-step">
+          <span class="step-index">02</span>
+          <h2>Retrieve</h2>
+          <p>Relevant sponsor, speaker, pricing, venue, and GTM context is pulled per agent query.</p>
+        </article>
+        <article class="pipeline-step">
+          <span class="step-index">03</span>
+          <h2>Agents</h2>
+          <p>Specialized recommendation agents generate structured event intelligence from the retrieved context.</p>
+        </article>
+        <article class="pipeline-step">
+          <span class="step-index">04</span>
+          <h2>Main</h2>
+          <p>The orchestrator synthesizes the final plan and appends forecasting insights for decision support.</p>
+        </article>
+      </section>
+
+      <section id="control-room" class="grid-two">
+        <div class="panel panel-form">
+          <div class="panel-header">
+            <p class="eyebrow">Control Room</p>
+            <h2>Event Brief</h2>
+          </div>
+          <form id="eventForm" class="event-form">
+            <label>
+              <span>Category</span>
+              <input id="categoryInput" name="category" type="text" value="AI">
+            </label>
+            <label>
+              <span>Location</span>
+              <input id="locationInput" name="location" type="text" value="India">
+            </label>
+            <label>
+              <span>Audience Size</span>
+              <input id="audienceInput" name="audience" type="number" value="500">
+            </label>
+            <label>
+              <span>Topic</span>
+              <input id="topicInput" name="topic" type="text" value="Large Language Models">
+            </label>
+            <label>
+              <span>Budget</span>
+              <input id="budgetInput" name="budget" type="text" value="50 lakhs">
+            </label>
+            <p class="brief-note">
+              Update the brief to mirror the event you want to plan, then load the latest generated recommendations below.
+            </p>
+          </form>
+        </div>
+
+        <div class="panel">
+          <div class="panel-header">
+            <p class="eyebrow">Coverage</p>
+            <h2>Agent Map</h2>
+          </div>
+          <div class="agent-grid">
+            <article class="agent-card implemented">
+              <span class="status-pill">Live</span>
+              <h3>Sponsor Agent</h3>
+              <p>Ranks relevant sponsors using retrieved event context and LLM synthesis.</p>
+            </article>
+            <article class="agent-card implemented">
+              <span class="status-pill">Live</span>
+              <h3>Speaker Agent</h3>
+              <p>Suggests speakers, topics, and expertise alignment for the event theme.</p>
+            </article>
+            <article class="agent-card implemented">
+              <span class="status-pill">Live</span>
+              <h3>Venue Agent</h3>
+              <p>Combines retrieved context and live venue search to shortlist hosting options.</p>
+            </article>
+            <article class="agent-card implemented">
+              <span class="status-pill">Live</span>
+              <h3>Pricing Agent</h3>
+              <p>Creates ticket tiers and expected attendance reasoning for the target audience.</p>
+            </article>
+            <article class="agent-card implemented">
+              <span class="status-pill">Live</span>
+              <h3>GTM Agent</h3>
+              <p>Builds promotion messaging plus community and channel recommendations.</p>
+            </article>
+            <article class="agent-card planned">
+              <span class="status-pill status-planned">Planned</span>
+              <h3>Exhibitor / Event Ops</h3>
+              <p>Frontend reserve card for the next backend agents: exhibitor discovery and execution planning.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel plan-overview">
+        <div class="panel-header">
+          <p class="eyebrow">Latest Output</p>
+          <h2>Conference Plan Dashboard</h2>
+          <p id="planStatus" class="subtle">Load the latest generated plan from <code>conference_plan.json</code>.</p>
+        </div>
+
+        <div class="overview-grid">
+          <article class="overview-card">
+            <span class="overview-label">Summary</span>
+            <p id="summaryText">Waiting for the latest plan.</p>
+          </article>
+          <article class="overview-card">
+            <span class="overview-label">Recommended Venue</span>
+            <p id="venueText">Not loaded yet.</p>
+          </article>
+          <article class="overview-card">
+            <span class="overview-label">ML Attendance</span>
+            <p id="attendanceText">Not loaded yet.</p>
+          </article>
+          <article class="overview-card">
+            <span class="overview-label">Go-To-Market Tip</span>
+            <p id="gtmTipText">Not loaded yet.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="results-grid">
+        <article class="panel result-panel">
+          <div class="panel-header">
+            <p class="eyebrow">Sponsors</p>
+            <h2>Top Recommendations</h2>
+          </div>
+          <div id="sponsorList" class="stack-list empty-state">Load a plan to view sponsor recommendations.</div>
+        </article>
+
+        <article class="panel result-panel">
+          <div class="panel-header">
+            <p class="eyebrow">Speakers</p>
+            <h2>Suggested Experts</h2>
+          </div>
+          <div id="speakerList" class="stack-list empty-state">Load a plan to view speaker recommendations.</div>
+        </article>
+
+        <article class="panel result-panel">
+          <div class="panel-header">
+            <p class="eyebrow">Pricing</p>
+            <h2>Ticket Strategy</h2>
+          </div>
+          <div id="pricingList" class="stack-list empty-state">Load a plan to view ticket pricing.</div>
+        </article>
+
+        <article class="panel result-panel">
+          <div class="panel-header">
+            <p class="eyebrow">Venues</p>
+            <h2>Location Shortlist</h2>
+          </div>
+          <div id="venueList" class="stack-list empty-state">Load a plan to view venue recommendations.</div>
+        </article>
+
+        <article class="panel result-panel result-panel-wide">
+          <div class="panel-header">
+            <p class="eyebrow">GTM</p>
+            <h2>Promotion Strategy</h2>
+          </div>
+          <div id="gtmList" class="stack-list empty-state">Load a plan to view community and messaging strategy.</div>
+        </article>
+      </section>
+    </main>
+  </div>
+
+  <script src="./app.js"></script>
+</body>
+</html>
