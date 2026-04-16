@@ -4,6 +4,8 @@ import json
 from pathlib import Path
 from typing import Any
 
+from retrieve import retrieve_context
+
 from fanta.config import AppConfig
 from fanta.knowledge import EventKnowledgeBase
 from fanta.schemas import EventInput, FinalPlan, PipelineResult
@@ -25,8 +27,19 @@ class ConferencePlannerService:
         self.llm = llm_client or GroqLLMClient(config)
         self.search = search_client or TavilySearchClient(config)
 
+    def _get_context(self, event: EventInput, retrieval_category: str, top_k: int = 8) -> str:
+        query = f"{event.category} conference in {event.location} about {event.topic}"
+        try:
+            context = retrieve_context(query=query, category=retrieval_category, top_k=top_k)
+            if context and not context.startswith("Error retrieving context") and not context.startswith("No specific data found"):
+                return context
+        except Exception:
+            pass
+
+        return self.knowledge_base.get_context(event.category, event.location, event.topic)
+
     def sponsor_agent(self, event: EventInput) -> dict[str, Any]:
-        context = self.knowledge_base.get_context(event.category, event.location, event.topic)
+        context = self._get_context(event, "sponsors")
         raw = self.llm.ask(
             system_prompt="""You are a Sponsor Agent for event planning.
 Analyze past event data and recommend sponsors.
@@ -48,7 +61,7 @@ Return JSON with top 5 sponsors.""",
         return parse_json_safely(raw, {"sponsors": [], "error": "Could not parse", "raw": raw[:1000]})
 
     def speaker_agent(self, event: EventInput) -> dict[str, Any]:
-        context = self.knowledge_base.get_context(event.category, event.location, event.topic)
+        context = self._get_context(event, "speakers")
         raw = self.llm.ask(
             system_prompt="""You are a Speaker Agent for event planning.
 Suggest speakers based on past events and topic.
@@ -71,7 +84,7 @@ Return JSON with top 5 speakers.""",
         return parse_json_safely(raw, {"speakers": [], "error": "Could not parse", "raw": raw[:1000]})
 
     def pricing_agent(self, event: EventInput) -> dict[str, Any]:
-        context = self.knowledge_base.get_context(event.category, event.location, event.topic)
+        context = self._get_context(event, "pricing")
         raw = self.llm.ask(
             system_prompt="""You are a Pricing Agent for event planning.
 Predict ticket prices based on past event data.
@@ -130,13 +143,7 @@ Return JSON with top 3 venues.""",
         return parse_json_safely(raw, {"venues": [], "error": "Could not parse", "raw": raw[:1000]})
 
     def gtm_agent(self, event: EventInput) -> dict[str, Any]:
-        context = self.knowledge_base.get_context(
-            event.category,
-            event.location,
-            event.topic,
-            max_events=3,
-            snippet_chars=500,
-        )
+        context = self._get_context(event, "gtm", top_k=6)
         raw = self.llm.ask(
             system_prompt="""You are a GTM (Go-to-Market) Agent for event planning.
 Suggest communities and promotion strategies.

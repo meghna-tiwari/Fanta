@@ -1,4 +1,11 @@
 groq
+langchain-community
+langchain-huggingface
+langchain-pinecone
+langchain-text-splitters
 numpy
+pinecone
+python-dotenv
+sentence-transformers
 tavily-python
 xgboost

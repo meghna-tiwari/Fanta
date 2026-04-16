@@ -13,151 +13,143 @@
                     "name": "Google",
                     "industry": "Tech",
                     "relevance_score": 9,
-                    "reason": "Leader in AI technology and frequent sponsor of AI conferences"
+                    "reason": "Google’s infrastructure is used for training large language models and Vertex AI is used for end-to-end ML workflows"
                 },
                 {
                     "name": "Microsoft",
                     "industry": "Tech",
-                    "relevance_score": 8.5,
-                    "reason": "Major player in AI and machine learning, with a strong presence in India"
+                    "relevance_score": 8,
+                    "reason": "Microsoft's Azure platform can be used for deploying large language models and integrating AI with existing enterprise systems"
+                },
+                {
+                    "name": "Amazon",
+                    "industry": "Tech",
+                    "relevance_score": 8,
+                    "reason": "Amazon's SageMaker platform can be used for building and deploying large language models"
                 },
                 {
                     "name": "IBM",
                     "industry": "Tech",
-                    "relevance_score": 8,
-                    "reason": "Long history of innovation in AI and a significant presence in the Indian market"
+                    "relevance_score": 7,
+                    "reason": "IBM's Watson platform can be used for building and deploying AI-powered search and NLP models"
                 },
                 {
-                    "name": "Tata Consultancy Services",
-                    "industry": "Tech",
-                    "relevance_score": 7.5,
-                    "reason": "Large Indian IT company with a strong focus on AI and digital transformation"
-                },
-                {
-                    "name": "Accenture",
+                    "name": "HCL",
                     "industry": "Tech",
                     "relevance_score": 7,
-                    "reason": "Global consulting firm with a significant presence in India and a strong focus on AI and emerging technologies"
+                    "reason": "HCL's expertise in digital transformation and AI adoption can be leveraged for deploying large language models in enterprise settings"
                 }
-            ],
-            "_metadata": {
-                "event_type": "AI",
-                "location": "India"
-            }
+            ]
         },
         "speakers": {
             "speakers": [
                 {
-                    "name": "Andrew Ng",
+                    "name": "Dr. Andrew Ng",
                     "expertise": "AI/ML",
-                    "suggested_topic": "Large Language Models for Natural Language Processing",
-                    "why": "Founder of AI Fund and former chief scientist at Baidu"
+                    "suggested_topic": "Large Language Models for Enterprise Applications",
+                    "why": "His expertise in AI and experience in deploying large language models"
                 },
                 {
                     "name": "Fei-Fei Li",
                     "expertise": "AI/ML",
-                    "suggested_topic": "Visual Intelligence and Large Language Models",
-                    "why": "Director of the Stanford Artificial Intelligence Lab"
+                    "suggested_topic": "Building RAG Systems for Proprietary Data",
+                    "why": "Her research in computer vision and experience in building AI systems"
                 },
                 {
-                    "name": "Yoshua Bengio",
+                    "name": "Rajat Monga",
                     "expertise": "AI/ML",
-                    "suggested_topic": "Deep Learning and Large Language Models",
-                    "why": "Turing Award winner and founder of Mila"
+                    "suggested_topic": "Training Large Language Models using Google’s Infrastructure",
+                    "why": "His experience in leading Google's AI efforts and expertise in large language models"
                 },
                 {
-                    "name": "Demis Hassabis",
-                    "expertise": "AI/ML",
-                    "suggested_topic": "Large Language Models for Decision Making",
-                    "why": "Co-founder and CEO of DeepMind"
+                    "name": "Dr. Christopher Manning",
+                    "expertise": "NLP",
+                    "suggested_topic": "Specialized NLP Models for Asian Languages",
+                    "why": "His research in NLP and experience in building language models for non-English languages"
                 },
                 {
-                    "name": "Geoffrey Hinton",
+                    "name": "Sundar Pichai",
                     "expertise": "AI/ML",
-                    "suggested_topic": "Large Language Models and Neural Networks",
-                    "why": "Turing Award winner and pioneer in deep learning"
+                    "suggested_topic": "Deploying AI-Powered Search over Enterprise Documents",
+                    "why": "His experience in leading Google's AI efforts and expertise in deploying AI-powered search"
                 }
-            ],
-            "_metadata": {
-                "event_type": "AI",
-                "location": "India"
-            }
+            ]
         },
         "pricing": {
             "pricing": {
-                "early_bird": 2499,
-                "general": 3999,
-                "vip": 7999,
+                "early_bird": 14999,
+                "general": 24999,
+                "vip": 49999,
                 "expected_attendance": 500,
-                "reasoning": "Based on past event data, AI conferences in India have shown a trend of increasing demand and popularity, which suggests higher ticket prices. Considering the target audience of 500 people, the prices are set to balance revenue goals with attendee affordability."
-            },
-            "_metadata": {
-                "event_type": "AI",
-                "location": "India"
+                "reasoning": "Based on the past event data, the target audience is 500 people, and the topic is Large Language Models, which is a specialized and high-demand field. The past event had 5,000+ attendees, world-class speakers, and 10+ organizations represented, indicating a high level of interest and demand. The ticket prices are set accordingly, with early bird prices starting at 14,999 INR, general prices at 24,999 INR, and VIP prices at 49,999 INR, considering the value proposition of the event and the expected attendance."
             }
         },
         "venues": {
             "venues": [
                 {
-                    "name": "NCUI Auditorium & Convention Centre",
-                    "city": "New Delhi",
+                    "name": "The Seamless NCUI Auditorium",
+                    "city": "Delhi",
+                    "capacity": 500,
+                    "estimated_cost": "10-20 lakhs",
+                    "why": "Ample parking and full power backup"
+                },
+                {
+                    "name": "JW Marriott Mumbai Sahar",
+                    "city": "Mumbai",
+                    "capacity": 500,
+                    "estimated_cost": "15-30 lakhs",
+                    "why": "Luxury indoor convention spaces and proximity to business hubs"
+                },
+                {
+                    "name": "Conference Rooms in Delhi",
+                    "city": "Delhi",
                     "capacity": 500,
                     "estimated_cost": "5-8 lakhs",
-                    "why": "perfect capacity and professional event hosting"
-                },
-                {
-                    "name": "Chennai Trade Centre",
-                    "city": "Chennai",
-                    "capacity": 500,
-                    "estimated_cost": "10-15 lakhs",
-                    "why": "expansive spaces for large-scale corporate events"
-                },
-                {
-                    "name": "Hyderabad International Convention Centre",
-                    "city": "Hyderabad",
-                    "capacity": 500,
-                    "estimated_cost": "8-12 lakhs",
-                    "why": "easily reachable and has necessary features for a conference"
+                    "why": "Variety of options with a starting price of Rs 400 per person"
                 }
-            ],
-            "_metadata": {
-                "event_type": "AI",
-                "location": "India"
-            }
+            ]
         },
         "gtm": {
-            "status": "Healed & Validated",
-            "promotion_message": "Join the ultimate AI summit in India! \ud83d\ude80",
-            "target_channels": [
-                "LinkedIn Groups",
-                "Discord Tech Hubs",
-                "Twitter Tech"
-            ],
-            "_metadata": {
-                "event_type": "AI",
-                "location": "India"
+            "gtm": {
+                "discord_communities": [
+                    "Machine Learning",
+                    "AI India",
+                    "Large Language Models"
+                ],
+                "linkedin_groups": [
+                    "Artificial Intelligence in India",
+                    "Machine Learning Professionals",
+                    "Natural Language Processing"
+                ],
+                "promotion_message": "Join India's largest AI conference to explore the future of Large Language Models! Learn from world-class speakers, network with 5,000+ AI leaders, and discover the latest advancements in AI. Get your pass now!",
+                "best_channels": [
+                    "LinkedIn",
+                    "Twitter",
+                    "Reddit (r/MachineLearning and r/AI)",
+                    "Discord"
+                ]
             }
         }
     },
     "final_plan": {
-        "summary": "AI conference in India with top speakers and sponsors, 500 attendees expected, ticket prices set to balance revenue and affordability. The conference will feature keynotes from renowned AI experts and provide a platform for networking and knowledge sharing. It will be held at a professional event hosting venue in New Delhi.",
+        "summary": "India's largest AI conference to explore Large Language Models, featuring world-class speakers and 500+ attendees, with ticket prices starting at 14,999 INR. The conference will be held at a luxury venue in Delhi, with ample parking and full power backup. Promote the event through Discord, LinkedIn, and Twitter to reach 5,000+ AI leaders.",
         "top_3_sponsors": [
             "Google",
             "Microsoft",
-            "IBM"
+            "Amazon"
         ],
         "top_3_speakers": [
-            "Andrew Ng",
+            "Dr. Andrew Ng",
             "Fei-Fei Li",
-            "Yoshua Bengio"
+            "Rajat Monga"
         ],
-        "recommended_venue": "NCUI Auditorium & Convention Centre, New Delhi",
+        "recommended_venue": "The Seamless NCUI Auditorium, Delhi",
         "ticket_pricing": {
-            "early_bird": 2499,
-            "general": 3999,
-            "vip": 7999
+            "early_bird": 14999,
+            "general": 24999,
+            "vip": 49999
         },
-        "gtm_tip": "Leverage Discord communities like AI Enthusiasts and Machine Learning India, and LinkedIn groups such as Artificial Intelligence Group and Machine Learning Professionals to promote the conference",
+        "gtm_tip": "Promote the event through LinkedIn, Twitter, and Discord communities, such as Machine Learning, AI India, and Large Language Models, to reach the target audience of AI leaders and professionals.",
         "ml_insights": {
             "predicted_attendance": 503,
             "confidence_score": "94.2%",
