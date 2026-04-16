@@ -1,0 +1,35 @@
+# Fanta Backend Integration
+
+This repo now runs as an integrated backend-style pipeline for conference planning.
+
+## Main entrypoints
+
+- `python main.py` runs the full planning pipeline.
+- `python static_scraping.py` builds the base event dataset.
+- `python static_scraping2.py` builds the hybrid dataset and writes it to the planner's active dataset path.
+- `python agents.py` preserves the old orchestrator entrypoint for compatibility.
+- `python predictorAgent.py` preserves the old predictor entrypoint for compatibility.
+
+## Environment
+
+Copy values from `.env.example` into your environment before running the live pipeline:
+
+- `TAVILY_API_KEY`
+- `GROQ_API_KEY`
+- `GROQ_MODEL` (optional)
+- `FANTA_DATASET_PATH` (optional)
+
+## Outputs
+
+- `conference_plan.json`
+- `refined_event_data.json`
+- `pinecone_upload/<namespace>/<namespace>_refined.json`
+
+## Internal structure
+
+- `fanta/config.py`: shared paths and runtime config
+- `fanta/schemas.py`: shared data contracts
+- `fanta/knowledge.py`: dataset loading and retrieval
+- `fanta/services/planner.py`: orchestrator and agent coordination
+- `fanta/services/predictor.py`: attendance prediction and Pinecone export shaping
+- `fanta/services/ingestion.py`: scraper/integration pipeline
