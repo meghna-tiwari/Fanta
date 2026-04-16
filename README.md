@@ -9,6 +9,7 @@ This repo now runs as an integrated backend-style pipeline for conference planni
 - `python static_scraping2.py` builds the hybrid dataset and writes it to the planner's active dataset path.
 - `python agents.py` preserves the old orchestrator entrypoint for compatibility.
 - `python predictorAgent.py` preserves the old predictor entrypoint for compatibility.
+- `frontend/index.html` is the lightweight UI for presenting the pipeline and the latest generated plan.
 
 ## Environment
 
@@ -24,6 +25,15 @@ Copy values from `.env.example` into your environment before running the live pi
 - `conference_plan.json`
 - `refined_event_data.json`
 - `pinecone_upload/<namespace>/<namespace>_refined.json`
+
+## Frontend
+
+Serve the repo root locally so the frontend can read `conference_plan.json`:
+
+- `python -m http.server 8000`
+- open `http://localhost:8000/frontend/`
+
+The frontend is static and currently visualizes the latest backend output rather than submitting jobs directly to Python.
 
 ## Internal structure
 
