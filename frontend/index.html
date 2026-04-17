@@ -13,15 +13,15 @@
   <div class="page-shell">
     <header class="hero">
       <div class="hero-copy">
-        <p class="eyebrow">Conference Planning Frontend</p>
+        <p class="eyebrow">Event Planning Workspace</p>
         <h1>Design stronger events with a planning workspace built for modern organizers.</h1>
         <p class="hero-text">
           Fanta turns scattered research, recommendations, and planning decisions into one clear event workspace.
           Use it to review strategy, compare recommendations, and shape the final conference experience.
         </p>
         <div class="hero-actions">
-          <button id="loadPlanButton" class="button button-primary">Load Latest Plan</button>
-          <a class="button button-secondary" href="#control-room">Open Control Room</a>
+          <button id="loadPlanButton" class="button button-primary" type="button">Load Latest Plan</button>
+          <a class="button button-secondary" href="#control-room">Open Planner</a>
         </div>
       </div>
       <aside class="hero-panel">
@@ -44,30 +44,30 @@
       <section class="pipeline-strip">
         <article class="pipeline-step">
           <span class="step-index">01</span>
-          <h2>Ingest</h2>
-          <p>Scraped event text is converted to documents and uploaded into Pinecone as searchable knowledge.</p>
+          <h2>Discover</h2>
+          <p>Surface the strongest event intelligence for sponsors, speakers, pricing, venues, and promotion.</p>
         </article>
         <article class="pipeline-step">
           <span class="step-index">02</span>
-          <h2>Retrieve</h2>
-          <p>Relevant sponsor, speaker, pricing, venue, and GTM context is pulled per agent query.</p>
+          <h2>Compare</h2>
+          <p>Review recommendations side by side so the organizer can evaluate tradeoffs quickly.</p>
         </article>
         <article class="pipeline-step">
           <span class="step-index">03</span>
-          <h2>Agents</h2>
-          <p>Specialized recommendation agents generate structured event intelligence from the retrieved context.</p>
+          <h2>Plan</h2>
+          <p>Turn fragmented research into one structured event brief with practical decisions and strategy.</p>
         </article>
         <article class="pipeline-step">
           <span class="step-index">04</span>
-          <h2>Main</h2>
-          <p>The orchestrator synthesizes the final plan and appends forecasting insights for decision support.</p>
+          <h2>Execute</h2>
+          <p>Use the final plan as the working view for sponsorship, venue, pricing, and GTM alignment.</p>
         </article>
       </section>
 
       <section id="control-room" class="grid-two">
         <div class="panel panel-form">
           <div class="panel-header">
-            <p class="eyebrow">Control Room</p>
+            <p class="eyebrow">Planner</p>
             <h2>Event Brief</h2>
           </div>
           <form id="eventForm" class="event-form">
@@ -92,15 +92,19 @@
               <input id="budgetInput" name="budget" type="text" value="50 lakhs">
             </label>
             <p class="brief-note">
-              Update the brief to mirror the event you want to plan, then load the latest generated recommendations below.
+              Update the brief to mirror the event you want to plan, then submit it to generate fresh recommendations.
             </p>
+            <div class="form-actions">
+              <button id="submitPlanButton" class="button button-primary" type="submit">Generate Plan</button>
+              <p id="submitStatus" class="submit-status">Ready to generate a conference plan.</p>
+            </div>
           </form>
         </div>
 
         <div class="panel">
           <div class="panel-header">
-            <p class="eyebrow">Coverage</p>
-            <h2>Agent Map</h2>
+            <p class="eyebrow">Planning Modules</p>
+            <h2>Recommendation Areas</h2>
           </div>
           <div class="agent-grid">
             <article class="agent-card implemented">
@@ -131,7 +135,7 @@
             <article class="agent-card planned">
               <span class="status-pill status-planned">Planned</span>
               <h3>Exhibitor / Event Ops</h3>
-              <p>Frontend reserve card for the next backend agents: exhibitor discovery and execution planning.</p>
+              <p>Reserved for the next product areas: exhibitor discovery and execution planning.</p>
             </article>
           </div>
         </div>
@@ -139,9 +143,9 @@
 
       <section class="panel plan-overview">
         <div class="panel-header">
-          <p class="eyebrow">Latest Output</p>
+          <p class="eyebrow">Latest Plan</p>
           <h2>Conference Plan Dashboard</h2>
-          <p id="planStatus" class="subtle">Load the latest generated plan from <code>conference_plan.json</code>.</p>
+          <p id="planStatus" class="subtle">Load the latest generated plan from the backend.</p>
         </div>
 
         <div class="overview-grid">

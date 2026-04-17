@@ -3,6 +3,9 @@ const locationInput = document.querySelector("#locationInput");
 const audienceInput = document.querySelector("#audienceInput");
 const topicInput = document.querySelector("#topicInput");
 const budgetInput = document.querySelector("#budgetInput");
+const eventForm = document.querySelector("#eventForm");
+const submitPlanButton = document.querySelector("#submitPlanButton");
+const submitStatus = document.querySelector("#submitStatus");
 const loadPlanButton = document.querySelector("#loadPlanButton");
 const planStatus = document.querySelector("#planStatus");
 
@@ -23,7 +26,11 @@ function decodeText(value) {
     .replace(/â€™/g, "'")
     .replace(/â€œ/g, '"')
     .replace(/â€\x9d/g, '"')
-    .replace(/â€"/g, '"');
+    .replace(/â€"/g, '"')
+    .replace(/Ã¢â‚¬â„¢/g, "'")
+    .replace(/Ã¢â‚¬Å“/g, '"')
+    .replace(/Ã¢â‚¬\x9d/g, '"')
+    .replace(/Ã¢â‚¬"/g, '"');
 }
 
 function createMetaChips(items) {
@@ -140,40 +147,44 @@ function populateInputs(input = {}) {
   if (input.budget) budgetInput.value = input.budget;
 }
 
+function renderPlan(data) {
+  const outputs = data.agent_outputs || {};
+  const finalPlan = data.final_plan || {};
+
+  populateInputs(data.input || {});
+
+  summaryText.textContent = decodeText(finalPlan.summary || "No summary available.");
+  venueText.textContent = decodeText(finalPlan.recommended_venue || "No venue selected.");
+
+  const insights = finalPlan.ml_insights || {};
+  attendanceText.textContent = insights.predicted_attendance
+    ? `${insights.predicted_attendance} attendees | ${decodeText(insights.confidence_score || "")}`
+    : "No ML forecast available.";
+
+  gtmTipText.textContent = decodeText(finalPlan.gtm_tip || "No GTM tip available.");
+
+  renderSponsors(outputs.sponsors?.sponsors || []);
+  renderSpeakers(outputs.speakers?.speakers || []);
+  renderPricing(outputs.pricing?.pricing || {});
+  renderVenues(outputs.venues?.venues || []);
+  renderGtm(outputs.gtm?.gtm || outputs.gtm || {});
+}
+
 async function loadLatestPlan() {
-  planStatus.textContent = "Loading latest conference_plan.json...";
+  planStatus.textContent = "Loading latest conference plan...";
 
   try {
-    const response = await fetch("../conference_plan.json", { cache: "no-store" });
+    const response = await fetch("/api/latest-plan", { cache: "no-store" });
     if (!response.ok) {
       throw new Error(`HTTP ${response.status}`);
     }
 
     const data = await response.json();
-    const outputs = data.agent_outputs || {};
-    const finalPlan = data.final_plan || {};
-
-    populateInputs(data.input || {});
-
-    summaryText.textContent = decodeText(finalPlan.summary || "No summary available.");
-    venueText.textContent = decodeText(finalPlan.recommended_venue || "No venue selected.");
-
-    const insights = finalPlan.ml_insights || {};
-    attendanceText.textContent = insights.predicted_attendance
-      ? `${insights.predicted_attendance} attendees | ${decodeText(insights.confidence_score || "")}`
-      : "No ML forecast available.";
-
-    gtmTipText.textContent = decodeText(finalPlan.gtm_tip || "No GTM tip available.");
-
-    renderSponsors(outputs.sponsors?.sponsors || []);
-    renderSpeakers(outputs.speakers?.speakers || []);
-    renderPricing(outputs.pricing?.pricing || {});
-    renderVenues(outputs.venues?.venues || []);
-    renderGtm(outputs.gtm?.gtm || outputs.gtm || {});
-
+    renderPlan(data);
     planStatus.textContent = "Latest backend plan loaded successfully.";
+    submitStatus.textContent = "Latest plan synced with the dashboard.";
   } catch (error) {
-    planStatus.textContent = `Could not load conference_plan.json. Serve the repo root with a local web server and rerun the backend to refresh the plan. (${error.message})`;
+    planStatus.textContent = `Could not load the latest plan from the backend. (${error.message})`;
     setEmptyState(sponsorList, "Plan not loaded yet.");
     setEmptyState(speakerList, "Plan not loaded yet.");
     setEmptyState(pricingList, "Plan not loaded yet.");
@@ -182,6 +193,47 @@ async function loadLatestPlan() {
   }
 }
 
+async function submitPlan(event) {
+  event.preventDefault();
+
+  submitPlanButton.disabled = true;
+  submitPlanButton.textContent = "Generating...";
+  submitStatus.textContent = "Running the planning pipeline. This may take a moment.";
+  planStatus.textContent = "Waiting for a new plan from the backend...";
+
+  const payload = {
+    category: categoryInput.value.trim() || "AI",
+    location: locationInput.value.trim() || "India",
+    audience_size: Number(audienceInput.value) || 500,
+    topic: topicInput.value.trim() || "Large Language Models",
+    budget: budgetInput.value.trim() || "50 lakhs",
+  };
+
+  try {
+    const response = await fetch("/api/plan", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload),
+    });
+
+    const data = await response.json();
+    if (!response.ok) {
+      throw new Error(data.details || data.error || `HTTP ${response.status}`);
+    }
+
+    renderPlan(data);
+    planStatus.textContent = "Fresh plan generated successfully.";
+    submitStatus.textContent = "Plan generated and loaded into the dashboard.";
+  } catch (error) {
+    submitStatus.textContent = `Generation failed: ${error.message}`;
+    planStatus.textContent = "The backend could not generate a new plan.";
+  } finally {
+    submitPlanButton.disabled = false;
+    submitPlanButton.textContent = "Generate Plan";
+  }
+}
+
 loadPlanButton.addEventListener("click", loadLatestPlan);
+eventForm.addEventListener("submit", submitPlan);
 
 loadLatestPlan();

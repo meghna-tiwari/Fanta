@@ -28,12 +28,12 @@ Copy values from `.env.example` into your environment before running the live pi
 
 ## Frontend
 
-Serve the repo root locally so the frontend can read `conference_plan.json`:
+Run the lightweight app server to serve both the UI and the planning API:
 
-- `python -m http.server 8000`
+- `python server.py`
 - open `http://localhost:8000/frontend/`
 
-The frontend is static and currently visualizes the latest backend output rather than submitting jobs directly to Python.
+The frontend can now submit an event brief to the backend and render the generated conference plan directly in the dashboard.
 
 ## Internal structure
 
